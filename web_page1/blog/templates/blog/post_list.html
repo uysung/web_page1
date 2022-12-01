@@ -1,7 +1,7 @@
 {% extends 'blog/base.html' %}
 
 {% block main_area %}
-      <h1>Blog</h1>
+<h1>Blog {% if category %}<span class="badge bg-secondary">{{ category }}</span>{% endif %}</h1>
 
     {% if post_list.exists %}
 
@@ -16,18 +16,20 @@
               {% endif %}
           </a>
           <div class="card-body">
-            {% if p.category %}
-              <span class="badge badge-secondary float-right">{{ p.category }}</span>
-            {% else %}
-              <span class="badge badge-secondary float-right">미분류</span>
-            {% endif %}
-            <div class="small text-muted">{{ p.create_at }}</div>
-            <h2 class="card-title h4">{{ p.title }}</h2>
-            {% if p.hook_text %}
-              <h5 class=""text-muted">{{ p.hook_text }}</h5>
-            {% endif %}
-            <p class="card-text">{{ p.content | truncatewords:45 }}</p>
-            <a class="btn btn-primary" href="{{ p.get_absolute_url }}">Read More &rarr;</a>
+
+              {% if p.category %}
+                <span class="badge badge-secondary float-right">{{ p.category }}</span>
+              {% else %}
+                <span class="badge badge-secondary float-right">미분류</span>
+              {% endif %}
+
+              <div class="small text-muted">{{ p.create_at }}</div>
+              <h2 class="card-title h4">{{ p.title }}</h2>
+              {% if p.hook_text %}
+                <h5 class=""text-muted">{{ p.hook_text }}</h5>
+              {% endif %}
+              <p class="card-text">{{ p.content | truncatewords:45 }}</p>
+              <a class="btn btn-primary" href="{{ p.get_absolute_url }}">Read More &rarr;</a>
           </div>
           <div class="card-footer text-muted">
               Posted on {{ p.created }} by
