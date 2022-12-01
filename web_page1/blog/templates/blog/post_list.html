@@ -29,6 +29,18 @@
                 <h5 class=""text-muted">{{ p.hook_text }}</h5>
               {% endif %}
               <p class="card-text">{{ p.content | truncatewords:45 }}</p>
+
+              <!-- 태그 //-->
+              {% if p.tags.exists %}
+                <i class="fa-solid fa-tags"></i>
+                {% for tag in p.tags.iterator %}
+                    <a href="{{ tag.get_absolute_url }}">
+                        <span class="badge text-bg-success">{{ tag }}</span></a>
+                {% endfor %}
+                <br /><br />
+              {% endif %}
+
+
               <a class="btn btn-primary" href="{{ p.get_absolute_url }}">Read More &rarr;</a>
           </div>
           <div class="card-footer text-muted">
