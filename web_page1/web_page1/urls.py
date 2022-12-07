@@ -1,5 +1,5 @@
-"""web_page1 URL Configuration
 
+"""web_page1 URL Configuration
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.1/topics/http/urls/
 Examples:
@@ -20,8 +20,9 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path("blog/", include("blog.urls")),
-    path("admin/", admin.site.urls),
+    path('blog/', include('blog.urls')),
+    path('admin/', admin.site.urls),
+    path('markdownx/', include('markdownx.urls')),
     path('', include('single_pages.urls')),
 ]
 
