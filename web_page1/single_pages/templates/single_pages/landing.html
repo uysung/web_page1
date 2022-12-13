@@ -1,18 +1,52 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>개발자 신유성입니다.</title>
+    <title>안녕하세요. 신유성입니다</title>
+    <link href="{% static 'blog/bootstrap/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'single_pages/css/landing.css' %}" rel="stylesheet" media="screen">
 </head>
 <body>
-    <nav>
-        <a href="/blog/">Blog</a>
-        <a href="/about_me/">about_me</a>
-    </nav>
 
-    <h1>안녕하세요. 신유성입니다</h1>
-    <h2>이력</h2>
-    <h2>Portfolio</h2>
-    <h3>아직 공사중입니다.</h3>
+{% include 'blog/navbar.html' %}
+
+<section>
+    <div class="container">
+
+        <div class="row justify-content-between">
+            <div class="col-lg-6 text-light">
+                <h1>안녕하세요. 신유성입니다</h1>
+                <h2>이력</h2>
+                <h2>Portfolio</h2>
+                <h3>아직 공사중입니다.</h3>
+            </div>
+    
+            <!-- 최신 글 //-->
+            <div class="col-lg-5 mt-5">
+                <h2 class="text-dark">Blog - Recent posts</h2>
+                {% for post in recent_posts %}
+                    <div class="card mt-1">
+                        <div class="card-body">
+                            <h6><a href="{{ post.get_absolute_url }}" class="text-decoration-nono text-dark">{{ post.title }}</a></h6>
+                            <span class="badge badge-pill badge-light float-right">
+                                <img class="mr-1 rounded-circle" width="20px" src="{{ post.get_avatar_url }}" alt="{{ post.author }}">
+                                {{ post.author.username }}
+                                &nbsp;
+                                &nbsp;
+                                {{ post.created_at }}
+                            </span>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<div class="fixed-bottom">
+    {% include 'blog/footer.html' %}
+</div>
 </body>
 </html>

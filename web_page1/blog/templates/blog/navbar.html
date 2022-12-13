@@ -28,27 +28,27 @@
       </form>
 
       <ul class="navbar-nav ml-auto">
-        <!-- 로그아웃 //-->
-        {% if user.is_authenticated %}
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            {% if user.socialaccount_set.all.0.get_avatar_url %}
-              <img class="rounded-circle" width="25px" src="{{ user.socialaccount_set.all.0.get_avatar_url }}" arl="">
-            {% else %}
-              <img class="rounded-circle" src="https://doitdjango.com/avatar/id/1387/1a7eacd9d3bf5739/svg/{{ user.email }}">
-            {% endif% }
-            &nbsp;
-            {{ user.username }}
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="/accounts/logout/">Log Out</a>
-          </div>
-        </li>
-        {% else %}
-        <li class="nav-item">
-          <a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">Log In</a>
-        </li>
-        {% endif %}
+      <!-- 로그아웃 //-->
+                {% if user.is_authenticated %}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {% if user.socialaccount_set.all.first.get_avatar_url %}
+                                <img class="rounded-circle" width="25px" src="{{ user.socialaccount_set.all.first.get_avatar_url }}" alt="">
+                            {% else %}
+                              <img class="rounded-circle" src="https://api.adorable.io/avatars/25/{{ user.username }}.png" alt="">
+                            {% endif %}
+                            &nbsp;
+                            {{ user.username }}
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="/accounts/logout/">Log Out</a>
+                        </div>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">Log In</a>
+                    </li>
+                {% endif %}
       </ul>
     </div>
   </div>
