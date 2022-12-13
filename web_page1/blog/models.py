@@ -61,7 +61,6 @@ class Post(models.Model) :
     def get_content_markdown(self):
         return markdown(self.content)
 
-
 class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
