@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>About 야옹이</title>
+    <link href="{% static 'blog/bootstrap/bootstrap.min.css' %}" rel="stylesheet" media="screen">
+    <link href="{% static 'single_pages/css/about_me.css' %}" rel="stylesheet" media="screen">
+</head>
+<body>
+
+{% include 'blog/navbar.html' %}
+
+<!-- 자기소개 //-->
+<section>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-lg-8">
+                <h1>안녕하세요. 야옹이입니다.</h1>
+                <br />
+                <p class="lead">
+                    그루밍과 잠자기를 좋아합니다.<br />
+                    귀여운 행동으로 사료를 먹고, 운동은 하지 않습니다.
+                    <img src="{% static 'single_pages/images/i_cat.png' %}" width="30px">
+                </p>
+                <ul>
+                    <li>야옹이 학교 졸업(2022)
+                    <img src="{% static 'single_pages/images/i_graduate.png' %}" width="30px"></li>
+                </ul>
+                <ul>
+                    <li>전국 야옹이 모델 선발
+                        <img src="{% static 'single_pages/images/i_crown.png' %}" width="30px"></li>
+                </ul>
+            </div>
+            <div class="col-lg-4">
+                <img class="img-fluid" src="{% static 'single_pages/images/cat1.jpg' %}">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 포트폴리오 //-->
+<section class="bg-light margin-for-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1>PORTFOLIO</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- 첫 번째 카드 //-->
+        <div class="col-lg-4">
+            <div class="card" data-toggle="modal" data-target="#modal_1">
+                <img class="card-img-top" src="{% static 'single_pages/images/pot_1.jpg' %}">
+                <div class="card-body">
+                    <h5 class="card-title">츄르 자동 공급장치 개발</h5>
+                    <p>Python, Ddjango, Pandas, python-docx 자동화</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 두 번째 카드 //-->
+        <div class="col-lg-4">
+            <div class="card" data-toggle="modal" data-target="#modal_2">
+                <img class="card-img-top" src="{% static 'single_pages/images/pot_1.jpg' %}">
+                <div class="card-body">
+                    <h5 class="card-title">츄르 자동 공급장치 개발</h5>
+                    <p>Python, Ddjango, Pandas, python-docx 자동화</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 세 번째 카드 //-->
+        <div class="col-lg-4">
+            <div class="card" data-toggle="modal" data-target="#modal_3">
+                <img class="card-img-top" src="{% static 'single_pages/images/pot_1.jpg' %}">
+                <div class="card-body">
+                    <h5 class="card-title">츄르 자동 공급장치 개발</h5>
+                    <p>Python, Ddjango, Pandas, python-docx 자동화</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Modal //-->
+<div class="modal fade" id="modal_1" tabindex="-1" role="dialog" aria-labelledby="modal_1" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document"></div>
+        <!-- 생략된 부분 시작 //-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modal_1">츄르 자동 공급장치 개발</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <img class="card-img-top" src="{% static 'single_pages/images/pot_1.jpg' %}">
+                    </div>
+                    <div class="col-lg-5">
+                        <p>Python, Django, Pandas, python-docx 자동화</p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        <!-- 생략된 부분 끝 //-->
+</div>
+
+
+<div class="fixed-bottom">
+    {% include 'blog/footer.html' %}
+</div>
+</body>
+</html>
